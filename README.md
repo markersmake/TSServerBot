@@ -11,3 +11,6 @@ This is a headless bot that will monitor chat for specific commands, then execut
 
 ### flaskTS3Bot.py
 This is a flask application that shows anyone connected to the server at time of path connection
+
+#### Notes
+For the ts3 python library, add version 2 by cloning the repository on Github.com and running the setup script. Version 1 does not offer as much functionality
