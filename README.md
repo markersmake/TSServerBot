@@ -6,4 +6,8 @@ To start, change the USER to whoever the admin is, the PASS to the admin passwor
 main_bot_backend_client.py file
 
 ## Functions
-The ts3
+### main_bot_backend_client.py 
+This is a headless bot that will monitor chat for specific commands, then execute a function based on the "!" primer
+
+### flaskTS3Bot.py
+This is a flask application that shows anyone connected to the server at time of path connection
