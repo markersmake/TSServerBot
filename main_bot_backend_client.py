@@ -56,12 +56,10 @@ def random_sound(ts3conn):
                         uid   = ts3conn.exec_("clientfind", pattern=rolledName)
                         uid   = uid[1]
                         uid   = uid['clid']
-                        
                         ts3conn.exec_("banclient", clid=uid, time=20)
                     else:
                         continue
 
-            #!roullette
             #!sound
             #!video
     return
