@@ -9,8 +9,14 @@ HOST = "192.168.2.185"
 PORT = 10011
 SID  = 1
 
-def random_sound(ts3conn):
+def controller(ts3conn):
 
+    '''
+    [SUM] The purpose of this function is to server as the controller for the bot where each function listens for to command to execute it
+    [DEC]
+    [input] ts3conn (connection properties)
+    [output] text or banning of a client
+    '''
     rollName = []
     isRollName = False
     ts3conn.exec_("servernotifyregister", event="textserver")
@@ -22,6 +28,7 @@ def random_sound(ts3conn):
             event = ts3conn.wait_for_event(timeout=550)
         except ts3.query.TS3TimeoutError:
             pass
+        
         else:
             if(event[0]["msg"] == "!pokeme"):
                 #play a random sound from soundbits folder
@@ -50,16 +57,18 @@ def random_sound(ts3conn):
                     ts3conn.exec_("gm", msg="But one could not stand\n")
                     time.sleep(2)
                     ts3conn.exec_("gm", msg="As he was the one to get banned\n")
-                    if(len(rollName) < 2):
+                    if(len(rollName) >= 2):
                         index = random.randint(0, len(rollName))
                         rolledName = rollName[index]
                         uid   = ts3conn.exec_("clientfind", pattern=rolledName)
                         uid   = uid[1]
                         uid   = uid['clid']
                         ts3conn.exec_("banclient", clid=uid, time=20)
+                        rollname = []
                     else:
                         continue
-
+            elif(event[0]["msg"] == "!video")
+            
             #!sound
             #!video
     return
@@ -69,7 +78,7 @@ if __name__ == "__main__":
         ts3conn.exec_("login", client_login_name=USER, client_login_password=PASS)
         ts3conn.exec_("use", sid=SID)
         #hello_bot(ts3conn)
-        random_sound(ts3conn)
+        controller(ts3conn)
 
 
 
